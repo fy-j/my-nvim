@@ -36,7 +36,7 @@ keymap.set("n", "qwe", "<c-w>o", opts)
 
 -- quick movement
 keymap.set("n", "J", "5j", opts)
-keymap.set("n", "K", "5k", opts)
+keymap.set("n", "KK", "5k", opts)
 keymap.set("n", "H", "0", opts) -- 跳到行首
 keymap.set("n", "L", "$", opts) -- 跳到行尾
 -- vim.keymap.set("n", ";", ":")
@@ -49,6 +49,10 @@ keymap.set(
   { desc = "Live Grep With Args" }
 )
 
+-- 全局查找函数调用处
+keymap.set("n", "gb", ":Telescope lsp_references<cr>", opts)
+
+--op
 -- 取消高亮
 keymap.set("n", "<leader><CR>", ":nohl<CR>", opts)
 
