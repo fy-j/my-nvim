@@ -14,4 +14,7 @@ return {
   {
     "wadackel/vim-dogrun",
   },
+  {
+    "catppuccin/nvim",
+  },
 }
