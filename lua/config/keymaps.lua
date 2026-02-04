@@ -27,10 +27,10 @@ keymap.set("n", "sj", ":set splitbelow<CR>:split<CR>", opts)
 keymap.set("n", "sh", ":set nosplitright<CR>:vsplit<CR>:set splitright<CR>", opts)
 keymap.set("n", "sl", ":set splitright<CR>:vsplit<CR>", opts)
 -- 切换窗口
---keymap.set("n", "<leader>l", "<c-w>l", opts)
---keymap.set("n", "<leader>k", "<c-w>k", opts)
---keymap.set("n", "<leader>h", "<c-w>h", opts)
---keymap.set("n", "<leader>j", "<c-w>j", opts)
+-- keymap.set("n", "<leader>l", "<c-w>l", opts)
+-- keymap.set("n", "<leader>k", "<c-w>k", opts)
+-- keymap.set("n", "<leader>h", "<c-w>h", opts)
+-- keymap.set("n", "<leader>j", "<c-w>j", opts)
 -- 关闭除当前窗口之外的所有其他窗口 quit-window-else
 keymap.set("n", "qwe", "<c-w>o", opts)
 
@@ -48,6 +48,17 @@ keymap.set(
   ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
   { desc = "Live Grep With Args" }
 )
+
+-- 在你的 keymaps.lua 中添加
+keymap.set("v", "<Tab>", ">", opts)
+keymap.set("v", "<S-Tab>", "<", opts) -- Shift+Tab 减少缩进
+
+-- 打开一个浮动终端
+local float_term = require("customs.float_term")
+keymap.set("n", "<leader>ft", float_term.open, opts)
+
+-- 在终端模式中按 Esc 直接退出到普通模式
+keymap.set("t", "<Esc>", [[<C-\><C-n>]], opts)
 
 -- 全局查找函数调用处
 keymap.set("n", "gb", ":Telescope lsp_references<cr>", opts)
