@@ -92,4 +92,26 @@ return {
       },
     },
   },
+
+  -- 禁用lazyvim 默认的signature的noice
+  {
+    "folke/noice.nvim",
+    opts = {
+      lsp = {
+        signature = {
+          enabled = false,
+        },
+        -- 关闭 LSP 悬停文档弹窗（如果不需要的话）
+        hover = {
+          enabled = false,
+        },
+        -- 可选：彻底禁用 Noice 对 LSP 消息的接管（如果需要完全原生 LSP 窗口）
+        -- override = {
+        --   ["vim.lsp.util.convert_input_to_markdown_lines"] = false,
+        --   ["vim.lsp.util.stylize_markdown"] = false,
+        --   ["cmp.entry.get_documentation"] = false,
+        -- },
+      },
+    },
+  },
 }
