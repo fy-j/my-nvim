@@ -9,6 +9,9 @@ vim.opt.backup = false
 vim.opt.writebackup = false
 vim.opt.swapfile = false
 
+-- 禁止自动注释续行
+vim.opt.formatoptions:remove({ "c", "r", "o" })
+
 -- 可选：在进入缓冲区时清除异常的跳转历史
 --vim.cmd([[
 --  autocmd BufEnter * clearjumps
