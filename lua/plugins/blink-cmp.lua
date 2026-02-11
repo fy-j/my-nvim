@@ -84,7 +84,7 @@ return {
 
       signature = {
         enabled = true,
-        window = { border = "rounded" },
+        window = { border = "rounded", max_width = 140 },
       },
 
       sources = {

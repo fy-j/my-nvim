@@ -4,4 +4,5 @@ require("config.options")
 require("config.keymaps")
 require("config.autocmds")
 
---vim.opt.mouse = ""
+-- Enable mouse mode, can be useful for resizing splits for example!
+vim.opt.mouse = "a"
