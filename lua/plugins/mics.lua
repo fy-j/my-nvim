@@ -3,6 +3,7 @@ return {
   --  默认gcc 注释当前行，v模式gc注释选中行
   {
     "numToStr/Comment.nvim",
+    event = "VeryLazy",
     opts = {
       -- add any options here
       --  TODO 注释当前行 和视觉模式 注释选中行 快捷键修改为<C-/>，对齐常规操作
@@ -20,5 +21,26 @@ return {
         -- Configuration here, or leave empty to use defaults
       })
     end,
+  },
+
+  {
+    "folke/snacks.nvim",
+    opts = {
+      terminal = {
+        -- 这里可以定义终端的默认参数
+        -- cwd = LazyVim.root(),
+        win = {
+          position = "float",
+          backdrop = 60,
+          width = 0.75,
+          height = 0.8,
+          border = "rounded",
+          wo = {
+            -- winhighlight = "Normal:Normal,FloatBorder:FloatBorder",
+            winhighlight = "Normal:Normal,NormalFloat:Normal,FloatBorder:FloatBorder",
+          },
+        },
+      },
+    },
   },
 }

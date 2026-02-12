@@ -10,7 +10,10 @@ vim.opt.writebackup = false
 vim.opt.swapfile = false
 
 -- 禁止自动注释续行
-vim.opt.formatoptions:remove({ "c", "r", "o" })
+-- vim.opt.formatoptions:remove({ "c", "r", "o" })
+
+-- 使得左右键可以跨行
+vim.o.whichwrap = vim.o.whichwrap .. "<>,h,l"
 
 -- 可选：在进入缓冲区时清除异常的跳转历史
 --vim.cmd([[
