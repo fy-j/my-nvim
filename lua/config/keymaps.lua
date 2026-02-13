@@ -25,6 +25,8 @@ keymap.set("v", "Y", '"+y', opts) -- 视觉模式下将当前选中的内容复�
 keymap.set("v", "<BS>", "d", { noremap = true, silent = true })
 -- replace what you highlight
 keymap.set("v", "p", '"_dP', opts)
+keymap.set("v", "<Tab>", ">", opts)
+keymap.set("v", "<S-Tab>", "<", opts) -- Shift+Tab 减少缩进
 
 -- ---------- 正常模式 ---------- ---
 -- 分割窗口
@@ -59,8 +61,8 @@ keymap.set("n", "qwe", "<c-w>o", opts)
 -- quick movement
 keymap.set("n", "J", "5j", opts)
 keymap.set("n", "KK", "5k", opts)
-keymap.set("n", "H", "0", opts) -- 跳到行首
-keymap.set("n", "L", "$", opts) -- 跳到行尾
+keymap.set("n", "HH", "^", opts) -- 跳到行首
+keymap.set("n", "LL", "$", opts) -- 跳到行尾
 -- vim.keymap.set("n", ";", ":")
 -- keymap.set("n", "<leader>sc", ":set spell!<cr>", opts) -- 开/关语法检查
 -- keymap.set("n", "<leader>sw", ":set wrap!<cr>", opts) -- 过长
@@ -70,9 +72,26 @@ keymap.set(
   ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
   { desc = "Live Grep With Args" }
 )
+-- 1. 复制相对路径 (项目根目录开始，最常用)
+keymap.set("n", "<leader>fy", function()
+  local path = vim.fn.expand("%:.")
+  vim.fn.setreg("+", path)
+  Snacks.notify.info("已复制相对路径: " .. path, { title = "剪贴板" })
+end, { desc = "Copy Relative Path" })
 
-keymap.set("v", "<Tab>", ">", opts)
-keymap.set("v", "<S-Tab>", "<", opts) -- Shift+Tab 减少缩进
+-- 2. 复制绝对路径 (完整系统路径)
+keymap.set("n", "<leader>fY", function()
+  local path = vim.fn.expand("%:p")
+  vim.fn.setreg("+", path)
+  Snacks.notify.info("已复制绝对路径: " .. path, { title = "剪贴板" })
+end, { desc = "Copy Absolute Path" })
+
+-- 3. 复制文件名 (不含路径)
+keymap.set("n", "<leader>fN", function()
+  local name = vim.fn.expand("%:t")
+  vim.fn.setreg("+", name)
+  Snacks.notify.info("已复制文件名: " .. name, { title = "剪贴板" })
+end, { desc = "Copy File Name" })
 
 -- 在终端模式中按 Esc 直接退出到普通模式
 keymap.set("t", "<Esc>", [[<C-\><C-n>]], opts)

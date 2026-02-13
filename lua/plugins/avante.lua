@@ -15,16 +15,28 @@ return {
       -- instructions_file = "avante.md",
       -- for example
 
-      provider = "yinli-one-custom-provider",
+      -- provider = "yinli-one-custom-provider",
+      -- providers = {
+      --   ["yinli-one-custom-provider"] = {
+      --     __inherited_from = "openai",
+      --     endpoint = "https://yinli.one/v1", -- The full endpoint of the provider
+      --     model = "claude-sonnet-4-20250514", -- The model name to use with this provider
+      --     api_key_name = "ANTHROPIC_API_KEY", -- The name of the environment variable that contains the API key
+      --   },
+      -- },
+
+      -- deepseek-api
+      provider = "deepseek",
       providers = {
-        ["yinli-one-custom-provider"] = {
+        deepseek = {
           __inherited_from = "openai",
-          endpoint = "https://yinli.one/v1", -- The full endpoint of the provider
-          model = "claude-sonnet-4-20250514", -- The model name to use with this provider
-          api_key_name = "ANTHROPIC_API_KEY", -- The name of the environment variable that contains the API key
+          api_key_name = "DEEPSEEK_API_KEY",
+          endpoint = "https://api.deepseek.com",
+          model = "deepseek-coder",
         },
       },
 
+      -- openrouter-api
       -- provider = "openrouter",
       -- providers = {
       --   openrouter = {
@@ -51,10 +63,10 @@ return {
         edit = {
           border = "rounded", -- 编辑弹窗使用圆角
         },
-        -- ask = {
-        --   floating = false, -- 确保在侧边栏显示，而不是浮动在中间
-        --   border = "rounded",
-        -- },
+        ask = {
+          floating = false, -- 确保在侧边栏显示，而不是浮动在中间
+          border = "rounded",
+        },
       },
 
       -- 建议：确保加载了图标支持，会让界面更好看

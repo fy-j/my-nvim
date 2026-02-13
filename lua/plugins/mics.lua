@@ -23,6 +23,7 @@ return {
     end,
   },
 
+  -- 浮动终端样式
   {
     "folke/snacks.nvim",
     opts = {
