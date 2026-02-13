@@ -23,25 +23,23 @@ return {
     end,
   },
 
-  -- 浮动终端样式
   {
-    "folke/snacks.nvim",
+    "attilarepka/header.nvim",
+    event = "VeryLazy",
     opts = {
-      terminal = {
-        -- 这里可以定义终端的默认参数
-        -- cwd = LazyVim.root(),
-        win = {
-          position = "float",
-          backdrop = 60,
-          width = 0.75,
-          height = 0.8,
-          border = "rounded",
-          wo = {
-            -- winhighlight = "Normal:Normal,FloatBorder:FloatBorder",
-            winhighlight = "Normal:Normal,NormalFloat:Normal,FloatBorder:FloatBorder",
-          },
-        },
-      },
+      allow_autocmds = true,
+      file_name = true,
+      author = nil,
+      project = nil,
+      date_created = true,
+      date_created_fmt = "%Y-%m-%d %H:%M:%S",
+      date_modified = true,
+      date_modified_fmt = "%Y-%m-%d %H:%M:%S",
+      line_separator = nil,
+      use_block_header = true,
+      copyright_text = nil,
+      license_from_file = false,
+      author_from_git = false,
     },
   },
 }
