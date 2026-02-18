@@ -44,6 +44,7 @@ return {
     },
   },
 
+  -- todo-comments plugin
   {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
